@@ -25,7 +25,7 @@ SECRET_KEY = 'b7&f^*o)9#veqae=gs5yo7&^$+qc&b&g(@)wvf#^j1$21lmk@l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["34.69.81.178","127.0.0.1","localhost"]
+ALLOWED_HOSTS = ["34.69.81.178","127.0.0.1","localhost","192.168.1.27"]
 #ALLOWED_HOSTS = ["34.69.81.178","0.0.0.0"]
 
 # Application definition
@@ -54,7 +54,8 @@ ROOT_URLCONF = 'django_hp01.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+       # 'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")], # os.path.join(BASE_DIR, "templates") eklendı
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,7 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') # live cdn AWS S3
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles')
+     os.path.join(BASE_DIR, 'staticfiles')
 ]
 
 
