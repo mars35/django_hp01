@@ -25,8 +25,8 @@ SECRET_KEY = 'b7&f^*o)9#veqae=gs5yo7&^$+qc&b&g(@)wvf#^j1$21lmk@l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["34.69.81.178"]
-
+ALLOWED_HOSTS = ["34.69.81.178","127.0.0.1","localhost"]
+#ALLOWED_HOSTS = ["34.69.81.178","0.0.0.0"]
 
 # Application definition
 
@@ -122,6 +122,11 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') # live cdn AWS S3
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles')
+]
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/' # django-storages
