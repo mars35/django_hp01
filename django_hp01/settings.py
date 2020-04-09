@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import json
+
+with open("config.json") as config_file:
+    config=json.load(config_file)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,10 +25,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b7&f^*o)9#veqae=gs5yo7&^$+qc&b&g(@)wvf#^j1$21lmk@l'
+#SECRET_KEY = 'b7&f^*o)9#veqae=gs5yo7&^$+qc&b&g(@)wvf#^j1$21lmk@l'
+SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["34.69.81.178","127.0.0.1","localhost","192.168.1.27"]
 #ALLOWED_HOSTS = ["34.69.81.178","0.0.0.0"]
@@ -121,8 +127,8 @@ USE_TZ = True
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static') # live cdn AWS S3
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'w3css') # live cdn AWS S3
+STATIC_URL = '/w3css/'
 
 STATICFILES_DIRS = [
      os.path.join(BASE_DIR, 'staticfiles')
