@@ -1,0 +1,26 @@
+
+
+# django web sitesinden
+WSGIDaemonProcess example.com python-home=/path/to/venv python-path=/home/taner35x/git-folder/django_hp01
+WSGIProcessGroup example.com
+
+WSGIScriptAlias / /home/taner35x/git-folder/django_hp01/django_hp01/wsgi.py process-group=example.com
+
+Alias /media/ /home/taner35x/git-folder/django_hp01/media/
+Alias /static/ /home/taner35x/git-folder/django_hp01/static/
+
+<Directory /home/taner35x/git-folder/django_hp01/static>
+Require all granted
+</Directory>
+
+<Directory /home/taner35x/git-folder/django_hp01/media>
+Require all granted
+</Directory>
+
+WSGIScriptAlias / /home/taner35x/git-folder/django_hp01/django_hp01/wsgi.py
+
+<Directory /home/taner35x/git-folder/django_hp01/django_hp01>
+<Files wsgi.py>
+Require all granted
+</Files>
+</Directory>
